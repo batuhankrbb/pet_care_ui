@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pet_care_app/screens/detail_page/detail_page.dart';
 import 'package:pet_care_app/screens/home_page/home_page.dart';
 import 'exports/all_files.dart';
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: "Cream",
           scaffoldBackgroundColor: ColorConst.backgroundWhite),
-      home: DetailPage(),
+      home: HomePage(),
     );
   }
 }

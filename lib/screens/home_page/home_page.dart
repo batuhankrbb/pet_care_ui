@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_care_app/exports/all_files.dart';
+import 'package:pet_care_app/screens/detail_page/detail_page.dart';
 import 'package:pet_care_app/screens/home_page/pet_chip.dart';
 
 class HomePage extends StatefulWidget {
@@ -77,7 +78,12 @@ class _HomePageState extends State<HomePage> {
       gridDelegate:
           SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (context, index) {
-        return PetFoodBox(petFoodData: petFoodList[index]);
+        return PetFoodBox(
+          petFoodData: petFoodList[index],
+          onTap: () {
+            navigateToDetail(context, index);
+          },
+        );
       },
       itemCount: petFoodList.length,
     );
@@ -104,6 +110,17 @@ class _HomePageState extends State<HomePage> {
           selectedNumber = index;
         });
       },
+    );
+  }
+
+  void navigateToDetail(BuildContext context, int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return DetailPage(petFoodData: petFoodList[index]);
+        },
+      ),
     );
   }
 }

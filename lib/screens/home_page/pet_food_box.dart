@@ -3,17 +3,22 @@ import 'package:pet_care_app/exports/all_files.dart';
 
 class PetFoodBox extends StatelessWidget {
   final PetFoodData petFoodData;
+  VoidCallback onTap;
 
-  const PetFoodBox({Key key, @required this.petFoodData}) : super(key: key);
+  PetFoodBox({Key key, @required this.petFoodData, this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(12),
-      decoration: buildPetFoodBoxDecoration(),
-      width: context.dynamicWidth(0.42),
-      height: context.dynamicHeight(0.40),
-      child: buildPetFoodBoxContent(context),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.all(12),
+        decoration: buildPetFoodBoxDecoration(),
+        width: context.dynamicWidth(0.42),
+        height: context.dynamicHeight(0.43),
+        child: buildPetFoodBoxContent(context),
+      ),
     );
   }
 
